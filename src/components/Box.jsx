@@ -15,7 +15,7 @@ function Box({ dispatch, coords, column, winner, winningPattern }) {
         column === "O" ? " o" : ""
       }`}
       onClick={handleClick}
-      aria-disabled={winner !== null ? true : false}
+      aria-disabled={winner !== null || winner === 2 ? true : false}
       style={{
         backgroundColor: isPartOfWinningPattern ? "green" : "",
       }}

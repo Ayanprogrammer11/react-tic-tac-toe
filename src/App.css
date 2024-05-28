@@ -42,16 +42,16 @@
   display: flex;
   gap: 20px;
   font-size: 55px;
-  color: white;
+  color: rgb(70, 70, 70);
   width: 80%;
   justify-content: space-around;
   padding: 30px;
 }
 
 .player1.active {
-  color: red;
+  color: white;
 }
 
 .player2.active {
-  color: red;
+  color: white;
 }

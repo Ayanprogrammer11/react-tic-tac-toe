@@ -4,6 +4,7 @@ import Boxes from "./components/Boxes";
 import "./App.css";
 import PlayerStatus from "./components/PlayerStatus";
 import checkWin from "./lib/checkWin";
+import checkIfFull from "./lib/checkIfFull";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -23,6 +24,7 @@ function reducer(state, action) {
           winner: winnerSymbol === "X" ? 0 : 1,
         };
       }
+      if (checkIfFull(newGridBoard)) return { ...state, winner: 2 };
 
       return {
         ...state,
