@@ -21,7 +21,6 @@ function reducer(state, action) {
         return {
           ...state,
           winner: winnerSymbol === "X" ? 0 : 1,
-          winningPattern,
         };
       }
 
