@@ -24,7 +24,7 @@ function reducer(state, action) {
           winner: winnerSymbol === "X" ? 0 : 1,
         };
       }
-      if (checkIfFull(newGridBoard)) return { ...state, winner: 2 };
+      if (checkIfFull(newGridBoard)) return { ...state, winner: "draw" };
 
       return {
         ...state,
@@ -32,6 +32,17 @@ function reducer(state, action) {
         activePlayer: state.activePlayer === 0 ? 1 : 0,
       };
     }
+    case "reset":
+      return {
+        ...state,
+        activePlayer: 0,
+        gridBoard: [
+          [undefined, undefined, undefined],
+          [undefined, undefined, undefined],
+          [undefined, undefined, undefined],
+        ],
+        winner: null,
+      };
   }
 }
 
@@ -56,20 +67,28 @@ function App() {
   return (
     <div className="app">
       <PlayerStatus activePlayer={activePlayer} />
-      <Boxes>
-        {gridBoard.map((row, i) => {
-          return row.map((column, j) => (
-            <Box
-              key={j}
-              coords={{ row: i, column: j }}
-              column={column}
-              dispatch={dispatch}
-              winner={winner}
-              winningPattern={winningPattern}
-            />
-          ));
-        })}
-      </Boxes>
+      <div className="main">
+        <Boxes>
+          {gridBoard.map((row, i) => {
+            return row.map((column, j) => (
+              <Box
+                key={j}
+                coords={{ row: i, column: j }}
+                column={column}
+                dispatch={dispatch}
+                winner={winner}
+                winningPattern={winningPattern}
+              />
+            ));
+          })}
+        </Boxes>
+        <button
+          onClick={() => dispatch({ type: "reset" })}
+          className="btn-reset"
+        >
+          Reset
+        </button>
+      </div>
     </div>
   );
 }

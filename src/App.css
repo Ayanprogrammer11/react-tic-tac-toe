@@ -10,7 +10,9 @@
   grid-template-columns: repeat(3, 134px);
   grid-template-rows: repeat(3, 134px);
   width: 402px;
-  margin: 15vh auto;
+  margin: 0 auto;
+  margin-top: 15vh;
+  margin-bottom: 16px;
 }
 
 .box {
@@ -27,12 +29,14 @@
 }
 
 .box.x::before {
+  font-weight: 700;
   content: "X";
   color: white;
   font-size: 50px;
 }
 
 .box.o::before {
+  font-weight: 700;
   content: "O";
   color: white;
   font-size: 50px;
@@ -42,6 +46,7 @@
   display: flex;
   gap: 20px;
   font-size: 55px;
+  font-weight: 900;
   color: rgb(70, 70, 70);
   width: 80%;
   justify-content: space-around;
@@ -54,4 +59,27 @@
 
 .player2.active {
   color: white;
+}
+
+.main {
+  text-align: center;
+}
+
+.btn-reset {
+  margin: 10px;
+  display: inline-block;
+  padding: 12px 32px;
+  border: none;
+  outline: none;
+  background-color: #313131;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition-property: background, transform;
+  transition-duration: 0.25s;
+}
+
+.btn-reset:active {
+  transform: scale(1.1);
 }
